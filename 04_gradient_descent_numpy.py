@@ -26,7 +26,7 @@ print(f'Prediction before training: f(5) = {forward(5):.3f}')
 
 #training
 learning_rate = 0.01
-n_iters = 10
+n_iters = 20
 
 for epoch in range(n_iters):
     # prediction = forward pass
@@ -41,7 +41,7 @@ for epoch in range(n_iters):
     #update weights
     w -= learning_rate * dw
 
-    if epoch % 1 == 0:
+    if epoch % 2 == 0:
         print(f'epoch {epoch+1}: w = {w:.3f}, loss = {l:.8f}')
 
 print(f'Prediction After training: f(5) = {forward(5):.3f}')
