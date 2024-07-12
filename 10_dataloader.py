@@ -15,9 +15,11 @@ class WineDataset(Dataset):
         self.n_samples = xy.shape[0]
 
     def __getitem__(self, index):
+        #dataset[0]
         return self.x[index], self.y[index]
     
     def __len__(self):
+        # len(dataset)
         return self.n_samples
     
 dataset = WineDataset()
@@ -32,3 +34,14 @@ data = next(dataiter)
 features, labels = data
 print(features, labels)'''
 
+# training loop
+num_epochs = 2
+total_samples = len(dataset)
+n_iteration = math.ceil(total_samples/4)
+print(total_samples, n_iteration)
+
+for epoch in range(num_epochs):
+    for i, (inputs, labels) in enumerate(dataloader):
+        if (i+1) % 5 == 0:
+            print(f'epoch {epoch +1}/{num_epochs}, step {i+1}/{n_iteration}, inputs {inputs.shape}')
+            
